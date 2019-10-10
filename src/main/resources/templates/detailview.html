@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Task</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../css/style.css" th:href="@{/css/style.css}" />
+</head>
+<body>
+<th th:object="${detail}">
+    <div class="header">
+        <h2>View Task <span th:text="${detail.title}"></span></h2>
+        <div class="form">
+            <p th:text="${detail.title}"></p>
+            <p th:text="${detail.description}"></p>
+        </div>
+        <a  class="return" style="color: white; text-decoration: none; border: 2px #d8ff00 solid; padding: 6px;" th:href="@{/board}">Return to list</a>
+    </div>
+</th>
+</body>
+</html>

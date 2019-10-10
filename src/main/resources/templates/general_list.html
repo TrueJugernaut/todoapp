@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../css/style.css" th:href="@{/css/style.css}"/>
+
+</head>
+<body>
+<script>
+  function deleteQuestion() {
+      if (window.confirm("Do you really want to delete this task?")) {
+          document.getElementById('click').click();
+      }
+  }
+</script>
+
+<div th:switch="${tasks}">
+    <div th:case="null" class="welcome">
+        <h2>No tasks yet!</h2>
+        <span><a class="create" href="/show_form">Create task</a></span>
+    </div>
+    <div th:case="*">
+        <div class="welcome">
+            <h2>Tasks</h2>
+            <span><a class="create" href="/show_form">Create task</a></span>
+        </div>
+        <div style="margin-top: 2%;">
+            <ul class="table-body" th:each="task : ${tasks}">
+                <li>
+                    <span th:text="${task.title}"></span>
+                    <span th:switch="${task.status}">
+                        <div th:case="1" class="welcome">
+                            <p>In Progress</p>
+                        </div>
+                        <div th:case="2" class="welcome">
+                            <p>Done</p>
+                        </div>
+                    </span>
+                    <div class="action">
+                        <a class="view" th:href="@{/changestatus/{id}(id=${task.id})}">Mark as done</a>
+                        <a class="view" th:href="@{/view/{id}(id=${task.id})}">View</a>
+                        <a class="edit" th:href="@{/edit/{id}(id=${task.id})}">Edit</a>
+                        <a class="close" onclick="deleteQuestion()">Delete</a>
+                        <a id="click" style="display: none;" th:href="@{/delete/{id}(id=${task.id})}">Delete</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
