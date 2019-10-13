@@ -290,3 +290,8 @@ textarea {
 .return:hover {
     box-shadow: 4px 2px 4px rgba(4, 6, 4, 0.46);
 }
+
+.date {
+    position: absolute;
+    color: #fbaea9;
+}

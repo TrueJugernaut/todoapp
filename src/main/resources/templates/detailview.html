@@ -5,17 +5,20 @@
     <meta charset="UTF-8">
     <title>View Task</title>
     <link rel="stylesheet" type="text/css" media="all"
-          href="../css/style.css" th:href="@{/css/style.css}" />
+          href="../css/style.css" th:href="@{/css/style.css}"/>
 </head>
-<body>
-<th th:object="${detail}">
+<body th:object="${detail}">
+<h2>View Task <strong th:text="${detail.title}"></strong></h2>
+<th>
     <div class="header">
-        <h2>View Task <span th:text="${detail.title}"></span></h2>
+        <br/>
         <div class="form">
-            <p th:text="${detail.title}"></p>
+            <span class="date" th:text="${detail.date}"></span>
+            <h3><strong th:text="${detail.title}"></strong></h3>
             <p th:text="${detail.description}"></p>
         </div>
-        <a  class="return" style="color: white; text-decoration: none; border: 2px #d8ff00 solid; padding: 6px;" th:href="@{/board}">Return to list</a>
+        <a class="return" style="color: white; text-decoration: none; border: 2px #d8ff00 solid; padding: 6px;"
+           th:href="@{/board}">Return to list</a>
     </div>
 </th>
 </body>

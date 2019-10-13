@@ -1,22 +1,10 @@
-/*
- * ====================================================================
- *
- * Follett Software Company
- *
- * Copyright (c) 2019 Follett Software Company
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, is not permitted without a written agreement
- * from Follett Software Company.
- *
- * ====================================================================
- */
 package com.todo.todoapp.controllers;
 
 import com.todo.todoapp.model.TaskModel;
 import com.todo.todoapp.service.TaskService;
+
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
